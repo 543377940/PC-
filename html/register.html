@@ -3,107 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>注册</title>
-		<style type="text/css">
-		body,html{
-			margin: 0 auto;
-			padding: 0;
-		}
-		a{
-			color: black;
-			text-decoration: none;
-		}
-		.main{
-			width: 985px;height: 595px;margin: 0 auto;padding-top: 25px;
-		}
-			.aa{
-				background: url(../img/niutou-0.png) no-repeat;
-				display: inline-block;
-				width: 190px;
-				height: 60px;
-				margin: 0 15px 15px;
-				float: left;
-				text-decoration: none;
-			}
-			.bb{				
-				display: inline-block;
-			    height: 40px;
-			    line-height: 40px;
-			    border-left: 1px solid #ddd;
-			    color: #6c6c6c;
-			    padding: 0px 15px;
-			    font-size: 22px;
-			    font-family: 'Microsoft YaHei';
-			    margin-top: 12px;
-			}
-			.middle{
-				width: 985px;
-				height: 523px;			
-			}
-			ul{
-				margin-top: 23px;
-				padding-left:175px ;
-				overflow: hidden;
-				margin-bottom: 0;
-				z-index: 2;
-			}
-			.uli{
-				list-style: none;
-			    margin: 0px;
-			    padding: 0px;
-			    float: left;
-			    height: 35px;
-			    line-height: 35px;
-			    text-align: center;
-			    border: 1px solid #d5d5d5;
-			    border-bottom: 0 none;
-			    background: #fff;
-			    color: #333;
-			    font-family: 'Microsoft YaHei';
-			    font-size: 14px;
-			    margin-right: 10px;
-			    cursor: pointer;
-                position: relative;  
-			}
-			ul li:nth-child(1) a{
-				padding:0 36px;
-			}
-			ul li:nth-child(2) a{
-				padding:0 36px;
-			}
-			.middle .cover{
-				width: 128px;
-				height: 4px;
-				position: absolute;
-				bottom: -2px;
-				z-index: 99;
-				color: black;
-			}
-			.active {
-                border-top:2px solid #C20053;
-                border-bottom: -2px;
-                z-index: 2;
-            }
-            .on{
-            	font-weight: bold;
-            	color: brown;
-            }
-            #left{
-            	width: 985px;
-            	height: 548px;
-            	
-            }
-            #right{
-            	width: 985px;
-            	height: 548px;
-            
-            }
-            .cc{
-            	    border: 1px solid #d5d5d5;
-				    background: #fff;
-				    padding: 35px;
-				    clear: both;
-            }
-		</style>
+		<link rel="stylesheet" type="text/css" href="../css/register.css"/>
 	</head>
 	<body>
 		<div class="main">
@@ -114,10 +14,55 @@
 			      <ul>
 			      	<li class="uli active" id="phone"><a href="#">手机注册</a></li>
 			      	<li class="uli" id="email"><a href="#">邮箱注册</a></li>
-			      	<li style="padding: 15px 12px 0px;color: #3c3c3c;float: right;list-style: none;">我已注册,<a href="login.html">马上登录></a></li>    
+			      	<li style="padding: 15px 12px 0px;color: #3c3c3c;float: right;list-style: none;font-size: 12px;">我已注册,<a href="login.html" style="color: red;font-size: 12px;">马上登录></a></li>    
 			      </ul>
 			      <div id="left" class="cc">
-			      	1
+			      	<div>
+			      		<div class="line" style="margin-left: 61px;">
+			      			<div><p>*</p>手机号码:</div>
+			      			<div>
+			      				<input type="text" name="" id="ph" placeholder="请输入手机号码" style="width: 305px;"/>
+			      			</div>
+			      			<div id="p_info" style="width: 150px;height: 32px ;margin-left: 15px;"></div>
+			      		</div>
+			      		<div class="line" style="margin-left: 50px;">
+			      			<div><p>*</p>图形验证码:</div>			      			
+			      			<div>
+			      				<input type="text" id="yzm"/>
+			      			</div>
+			      			<img src="" alt="" id="yzm_img"/>
+			      			<span id="nosee">看不清？<a href="javascript:void(0)">换一张</a></span>
+			      			<div id="yzm_info" style="width: 130px;height: 32px ;margin-left: 15px;"></div>
+			      		</div>
+			      		<div class="line" style="margin-left: 73px;">
+			      			<div><p>*</p>验证码:</div>				      			
+			      			<div>
+			      				<input type="text" name="" id="" value="" />
+			      			</div>
+			      			<div style="border: 1px solid gainsboro;height: 32px;width: 150px;line-height: 30px;text-align: center;margin-left: 15px;">获取验证码</div>
+			      		</div>
+			      		<div class="line" style="margin-left: 61px;">
+			      			<div><p>*</p>设置密码:</div>				      			
+			      			<div>
+			      				<input type="password"  id="password" style="width: 305px;"/>
+			      			</div>
+			      			<div id="pass_info" style="width: 150px;height: 32px ;margin-left: 15px;"></div>
+			      		</div>
+			      		<div class="line" style="margin-left: 61px;">
+			      			<div><p>*</p>确认密码:</div>				      			
+			      			<div>
+			      				<input type="password" id="ckpassword"  style="width: 305px;"/>
+			      			</div>
+			      			<div id="ckpass_info" style="width: 150px;height: 32px ;margin-left: 15px;"></div>
+			      		</div>
+			      		<div class="line" style="margin-left: 123px;">
+			      			<input type="checkbox" name="" id="check" value="" />
+			      			<span>我已阅读并同意<a href="">《飞牛网服务协议》</a></span>
+			      		</div>
+			      		<div class="line" style="margin-left: 118px;">
+			      			<input type="button" value="同意协议并注册" id="sub"/>
+			      		</div>
+			      	</div>
 			      </div>
 			      <div id="right" class="cc" style="display: none">
 			      	2
@@ -144,6 +89,120 @@
 					$("#left").hide();
 					$("#right").show();
 					$("#phone").removeClass("active").find("a").removeClass("on")
+				})
+				function ckPhone(){
+					var reg = /^(137|157)[0-9]{8}$/;
+					return reg.test($("#ph").val());
+				}
+				
+				function ckPassword() {
+					var reg = new RegExp("^\\w{6,16}$");
+					return reg.test($("#password").val());
+				}
+				function ckPasswordAgain() {
+					   var a=$("#ckpassword").val(),
+					       b=$("#password").val();
+					return a==b;
+				}
+				function change(){
+					var _url = "http://route.showapi.com/932-2?showapi_appid=29550&showapi_sign=08402fce064a484baad949d9a18f75e7&length=4&specials=false";
+					$.getJSON(_url, function(responseData){
+						var data = responseData.showapi_res_body;
+						// 显示验证码图片
+						$("#yzm_img").attr("src", data.image);
+						// 缓存该接口要用到的 SID 数据到图像元素上
+						$("#yzm_img").data("sid", data.sid);
+					});
+				}
+				change();
+				$("#nosee a").click(function(){
+					change()
+				})
+				$("#ph").blur(function(){
+					if($("#ph").val().length===0){
+						$("#p_info").addClass("wrong").text("用户名不能为空")
+					}
+					else{
+						if(ckPhone()){
+						$("#p_info").addClass("yes").text("用户名可用")
+					    }
+						else{
+						$("#p_info").addClass("wrong").text("用户名错误")	
+						}
+					} 
+				})
+				$("#ph").focus(function(){
+					$("#p_info").removeClass("wrong").text("")
+				})
+				
+				$("#password").blur(function(){
+					if($("#password").val().length===0){
+						$("#pass_info").addClass("wrong").text("密码不能为空")
+					}
+					else{
+						if(ckPassword()){
+						$("#pass_info").removeClass("wrong").text("");
+						$("#pass_info").addClass("yes").text("密码可用");
+					    }
+						else{
+						$("#pass_info").removeClass("yes").text("");
+						$("#pass_info").addClass("wrong").text("密码错误");
+						
+						}
+					} 
+				})
+				$("#password").focus(function(){
+					$("#pass_info").removeClass("wrong").text("")
+					$("#pass_info").removeClass("yes").text("")
+				})
+				$("#ckpassword").blur(function(){
+					if($("#ckpassword").val().length===0){
+						$("#ckpass_info").addClass("wrong").text("密码不能为空")
+					}
+					else{
+						if(ckPasswordAgain()){
+						$("#ckpass_info").addClass("yes").text("密码正确")
+					    }
+						else{
+						$("#ckpass_info").addClass("wrong").text("两次密码不一致")	
+						}
+					} 
+				})
+				$("#ckpassword").focus(function(){
+					$("#ckpass_info").removeClass("wrong").text("")
+					$("#ckpass_info").removeClass("yes").text("")
+				})
+				$("#yzm").blur(function(){
+				var _url = "http://route.showapi.com/932-1?showapi_appid=29550&showapi_sign=08402fce064a484baad949d9a18f75e7&checkcode="+ $(this).val() +"&sid=" + $("#yzm_img").data("sid");
+				$.getJSON(_url, function(resData){
+					if($("#yzm").val().length===0){
+						$("#yzm_info").addClass("wrong").text("图形验证码不能为空")
+					}else{
+						if (resData.showapi_res_body.valid) {
+						$("#yzm_info").addClass("yes").text("验证码正确");
+						    yzmError = false;
+						} else {
+							$("#yzm_info").addClass("wrong").text("验证码输入有误");
+							yzmError = true;
+						}
+					}
+					
+					});
+				});
+				$("#yzm").focus(function(){
+					$("#yzm_info").removeClass("wrong").text("")
+					$("#yzm_info").removeClass("yes").text("")
+				})
+				$("#sub").click(function(){
+					if($("#check").prop("checked")&&ckPhone()&&ckPassword()&&ckPasswordAgain()&&yzmError==false){
+						alert("注册成功")
+						$.cookie("usename",$('#ph').val(),{expires:7});
+						$.cookie("password",$('#password').val(),{expires:7});
+//						location="index.html"
+					}
+					else{
+						alert("填写信息不完整，请补充完整后再提交")
+					}
 				})
 			})
 		</script>

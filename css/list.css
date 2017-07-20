@@ -1,0 +1,298 @@
+html,body,div,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,p,input{
+	padding: 0;
+	margin: 0 auto;
+	font-family: "微软雅黑";
+	/*box-sizing: border-box;*/
+}
+ul li{
+      list-style:none;   
+}
+html,body{
+	width: 100%;
+	height: 100%;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.navr{
+	width: 100%;
+	height: 60px;
+	overflow: hidden;
+}
+.navr .navmain{
+	width: 990px;
+	height: 40px;
+	margin-top: 20px;
+	position: relative;
+	float: left;
+}
+.navr .navmain ul li{
+	float: left;
+}
+.navr .navmain ul li a{
+	display: inline-block;
+	padding: 10px 15px;
+	color: black;
+	font-weight: bold;
+	font-size: 15px;
+}
+.navr .navmain ul li a:hover{
+	color: brown;
+}
+#pic2{
+	position: absolute;
+	right: 30px;
+	top: -20px;
+}
+#all{
+	margin-top:20px ;
+	margin-left: 32px;
+	height: 40px;
+	width: 200px;
+	background: brown;
+	text-align: center;
+	line-height: 40px;
+}
+.allsubnav{
+	position: absolute;
+	top:-1px;
+	/*width: 800px;
+	height: 650px;*/
+	left: 193px;
+	border: 1px solid red;
+	background: white;
+	z-index: 20;
+	display: none;
+}
+.allsubnav >div{
+	position: absolute;
+	display: none;
+	overflow: hidden;
+}
+.allsubnav >div:nth-child(1){
+	width: 1000px;
+/*	height: 650px;*/
+	border: 1px solid red;
+	background: white;
+}
+.allsubnav >div:nth-child(2){
+	width: 1000px;
+/*	height:400px;*/
+	border: 1px solid red;
+	background: white;
+}
+.allsubnav >div:nth-child(3){
+	width: 1000px;
+/*	height:400px;*/
+	border: 1px solid red;
+	background: white;
+}
+.allsubnav >div:nth-child(4){
+	width: 1000px;
+/*	height:400px;*/
+	border: 1px solid red;
+	background: white;
+}
+.allsubnav >div:nth-child(5){
+	width: 1000px;
+/*	height:400px;*/
+	border: 1px solid red;
+	background: white;
+}
+.allsubnav >div:nth-child(6){
+	width: 1000px;
+/*	height:400px;*/
+	border: 1px solid red;
+	background: white;
+}
+.allsubnav >div:nth-child(7){
+	width: 1000px;
+/*	height:400px;*/
+	border: 1px solid red;
+	background: white;
+}
+.allsubnav >div:nth-child(8){
+	width: 1000px;
+/*	height:400px;*/
+	border: 1px solid red;
+	background: white;
+}
+.alldiv{
+	box-sizing: border-box;
+	padding: 10px;
+}
+.alldiv_div{
+	width: 221px;
+	font-size: 12px;
+	margin: 10px;
+/*	background: orange;*/
+}
+.alldiv_div div h3{
+	border-bottom: 1px dashed gray;
+	text-align: left;
+	font-size: 12px;
+}
+.alldiv_div div p{
+	line-height: 25px;
+	text-align: left;
+	margin-left: 5px;
+}
+.alldiv_div div p a{
+	margin-left: 3px;
+}
+.sidenav{
+	position: absolute;
+	float: left;
+	z-index: 99;
+	display: none;
+}
+.sidenav ul {
+	z-index: 99;
+	position: absolute;
+}
+.sidenav ul li{
+	width: 200px;
+	height: 50px;
+	background: white;
+	float: left;
+	font-size: 14px;
+	line-height: 50px;
+	text-align: left;
+	box-sizing: border-box;
+	padding-left: 15px;
+}
+.sidenav ul .xx{
+	background: brown;
+	padding-left: 30px;
+}
+.sidenav ul li .yy{
+	text-decoration: underline;
+	color: white;
+}
+.everypro{
+	float: left;
+	font-size: 12px;
+	width: 239px;
+	height: 391px;
+	margin: 5px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+.everypro a{
+	color: orange;
+}
+.everypro span{
+	color: red;
+}
+.everypro p{
+	margin: 5px;
+}
+.pro_price{
+	font-size: 18px;
+}
+.addtocart{
+	height: 30px;
+}
+.addtocart >div{
+	float: left;
+}
+#delpro{
+	width: 997px;
+}
+.delpro_amount{
+	width: 28px;
+	height: 28px;
+	border: 1px solid gainsboro;
+}
+.delpro_amount input{
+	width: 28px;
+	height: 28px;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.add,.min{
+	width: 14px;
+	height: 12px;
+	border: 1px solid gainsboro;
+	text-align: center;
+	line-height: 12px;
+	margin-bottom: 2px;
+	margin-left: 5px;
+}
+.addcart{
+	height: 28px;
+	width: 90px;
+	border:1px solid gainsboro;
+	margin-left: 10px;
+}
+.addcart a{
+	display: block;
+	color: brown;
+	text-align: center;
+	line-height: 28px;
+}
+.addborder{
+	border: 1px solid gainsboro;
+}
+#proall{
+	width: 1199px;
+}
+.addcart a.add_cart{
+	background: brown;
+	color: white;
+}
+#proall>div{
+	float: left;
+}
+#hotpro{
+	width: 200px;
+	/*height: 500px;*/
+	border: 1px solid gainsboro;
+}
+#hotpro #h3div{
+	width: 198px;
+    height: auto;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e9e9e9;
+}
+#hotpro #h3div h3{
+	height: 36px;
+    line-height: 36px;
+    padding-left: 10px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #e9e9e9;
+    font-size: 14px;
+    font-weight: 700;
+}
+.everyhotpro{
+	width: 160px;
+	padding: 0 9px;
+	margin-bottom: 20px;
+}
+.everyhotpro dl dt a{
+	display: block;
+}
+.everyhotpro dl dt img{
+	width: 160px;
+	height: 160px;
+}
+.hot_detal{
+	display: block;
+	font-size: 12px;
+	line-height: 20px;
+}
+.hot_price{
+	color: firebrick;
+}
+.hot_price span{
+	font-size: 18px;
+}
+.hotshop{
+	font-size: 15px;
+	color: gray;
+}
+.hot_detal:hover{
+	color: brown;
+}

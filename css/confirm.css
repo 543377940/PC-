@@ -1,0 +1,117 @@
+html,body,div,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,p,input{
+	padding: 0;
+	margin: 0 auto;
+	font-family: "微软雅黑";
+	/*box-sizing: border-box;*/
+}
+#subtotal,#subimagess{
+	width: 1190px;
+	overflow: hidden;
+}
+#subtotal>div{
+	float: right;
+	margin: 10px;
+}
+#subtotal .totalprice{
+	font-size: 20px;
+	color: red;
+}
+#subimagess>div{
+	width: 437px;
+	height: 150px;
+	float: right;
+	border: 3px solid orangered;
+	box-sizing: border-box;
+	padding: 10px;
+}
+#subimagess>div>div{
+	height: 45px;
+	width: 100%;
+}
+#subimagess #ppp span{
+	font-size: 20px;
+}
+#subimagess div div p{
+	float: right;
+}
+.suborder{
+	width: 1190px;
+	height: 50px;
+}
+#suborder,#returncart{
+	float: right;
+	width: 120px;
+	height: 40px;
+	border: 1px solid red;
+	margin-top: 15px;
+	margin-right: 15px;
+}
+#suborder  a{
+	display: block;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	background: orangered;
+}
+#returncart  a{
+	display: block;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	background: orangered;
+}
+.com_address{
+	width: 1190px;
+	height: 40px;
+	overflow: hidden;
+}
+.com_address div{
+	float: left;
+	width: 120px;
+	height: 38px;
+	margin-left: 15px;
+	line-height: 38px;
+	font-size: 15px;
+}
+.com_address div:nth-child(1){
+	font-weight: bold;	
+}
+.com_address div:nth-child(2){
+	border: 1px solid orangered;	
+}
+.com_address div:nth-child(2) a{
+	background: orangered;
+	display: block;
+	color: white;
+	font-size: 15px;
+	line-height: 38px;
+	text-align: center;
+}
+.address{
+	width: 1190px;
+	height: 160px;
+}
+.address>div{
+	float: left;
+	width: 235px;
+	height: 130px;
+	padding: 10px;
+	margin: 5px;
+	position: relative;	
+}
+.address .cz{
+	background: url(../img/peraddressbg.png) no-repeat;
+}
+.address .ncz{
+	background: url(../img/peraddbg.png) no-repeat;
+}
+.address p{
+	margin: 5px;
+	font-size: 14px;
+}
+.address .botpp{
+	position: absolute;
+	bottom: 5px;
+	right: 15px;
+}
+

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="../css/include.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/list.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+	</head>
+	<body>
+		<div id="cover"></div>
+		<div class="header"></div>
+		
+		<div id="emptyshow">
+			<div class="empty">
+				<div id="cancal"><img src="../img/bad3771e7d516edd7e14e0fc9020cc76.jpg"/></div>
+				<p>确定要清空购物车吗？</p>
+				<div id="confirm_clear"><button>确定</button></div>
+				<div id="cancal_clear"><button>取消</button></div>
+			</div>			
+		</div>
+		
+		<div id="cart_nav">
+			<div id="logo">
+	        	<div>
+	        		<a href="index.html">
+	        			<img src="../img/s-logo.png"/>
+	        		</a>
+	        	</div>
+	        	<div>
+	        		<img src="../img/zt.png"/>
+	        	</div>
+	        </div>
+		</div>
+		<div style="width: 1190px;height: 50px;">
+			<div style="margin-top: 20px;margin-left: 15px;color: firebrick;">
+				<span>全部商品</span>
+			    <span class="cart_amount" style="font-weight:bold">0</span>
+			</div>			
+		</div>
+		<table>
+			<tr style="height: 50px;">
+				<td style="height: 50px;"><label><input type="checkbox"  class="ck_all" style="margin-left: 10px;margin-top: 10px;">全选</label></td>
+				<td style="height: 50px;">商品名称</td>
+				<td style="height: 50px;">单价（元）</td>
+				<td style="height: 50px;">数量</td>
+				<td style="height: 50px;">小计（元）</td>
+				<td style="height: 50px;">操作</td>
+			</tr>
+		</table>
+		<div id="main_cart">
+			<label><input type="checkbox" class="ck_all">全选</label>
+			<!--<a href="javascript:void(0);">删除选中的商品</a>-->
+	        <a href="javascript:void(0);" id="clearcart">清空购物车</a>
+	        <a href="javascript:void(0);">批量移入收藏夹</a>
+	        <span style="margin-left: 535px;">应付金额(含运费  ¥15 )：</span>
+	        <span style="color: red;">￥</span>
+	        <span class="total">0.00</span>
+	        <div class="topay"><a href="javascript:void(0);">立即结算</a></div>
+		</div>
+		
+		<div class="footer"></div>
+		<script type="text/html" id="product_template">
+			<% for (var i = 0, len = list.length; i < len; i++) {
+				var product = list[i];
+			%>
+	            <tr>
+					<td><input type="checkbox" class="ck_prod"></td>
+					<td>
+						<div id="">
+						    <a href="detail.html"><img src="<%= product.id %>"/></a>
+					    </div>
+					    <span><%= product.name %></span>
+					</td>
+					<td><%= product.price %></td>
+					<td><span class="minus"> - </span> <input type="text" id="cartam" value="<%= product.amount %>" class="amount"> <span class="add"> + </span></td>
+					<td class="sub"><%= product.amount * product.price %></td>
+					<td><a href="javascript:void(0);">删除</a></td>
+				</tr>
+			<% } %>
+		</script>
+		<script type="text/javascript" src="../lib/jquery/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../lib/plugins/jquery.cookie.js"></script>
+		<script src="../lib/artTemplate/template-native.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/include.js"></script>
+		<script type="text/javascript">
+	$(function() {
+			// 配置 
+			$.cookie.json = true;
+			// 读取所有购物车选购商品的数组
+			var products = $.cookie("products") || [];
+			// 如果数组长度为0，表示购物车为空
+			if (products.length === 0) {
+				alert("购物车为空");
+				location = "/飞牛网/html/index.html";
+				return;
+			}
+			
+			allamount();
+			// 有购买商品，则准备渲染模板引擎的数据
+			var data = {
+				list : products
+			};
+			// 使用模板引擎渲染所有选购商品的数据
+			var html = template("product_template", data);
+			$("table").append(html);
+
+			/* 点击"删除"链接，删除单行商品 */
+			$("table a:not(:first)").click(function(){
+				// 获取当前点击的 "删除" 链接所在行
+				var $tr = $(this).parents("tr");
+				/* 在 cookie 中删除该行商品 */
+				// 找出在数组中的元素删除
+				var index = exist($tr.children().eq(1).text(), products);
+				products.splice(index, 1);
+				// 将数组覆盖保存回 cookie
+				$.cookie("products", products, {expires:7});
+				// 从 DOM 布局结构中删除该行
+				$tr.remove();
+				if (products.length === 0) {
+				alert("购物车为空");
+				location = "/飞牛网/html/index.html";
+				return;
+			    }  
+			});
+
+			/* 修改数量 */
+			// 点击 +/- 号修改数量
+			$(".minus,.add").click(function(){
+				// 找到 - 号所在行
+				var $tr = $(this).parents("tr");
+				// 该行绑定数据在数组中索引
+				var index = exist($tr.children().eq(1).find("span").text(), products);
+				// 获取该行对应数组中的商品对象
+				var product = products[index];
+
+				if ($(this).is(".add")) { // 数量 +
+					product.amount ++;
+				} else { // 数量 -
+					if (product.amount <= 1)
+						return;
+					// 在数组元素中减数量
+					product.amount -= 1;
+				}
+				
+				// 保存回 cookie
+				$.cookie("products", products, {expires:7});
+				// 页面显示内容修改
+				$tr.find(".amount").val(product.amount);
+				// 更新页面显示小计
+				$tr.find(".sub").text(product.price * product.amount);
+				calcTotal();
+			});
+			// 输入修改数量
+			// 获取焦点，将原有数量暂存
+			var _amount = 0;
+			$(".amount").focus(function(){
+				_amount = $(this).val();
+			});
+			// 失去焦点，设置数量
+			$(".amount").blur(function(){
+				if(!/^[1-9]\d*$/.test($(this).val())) { // 格式有误
+					$(this).val(_amount);
+					alert("输入数量格式有误");
+					return;
+				}
+
+				if ($(this).val() == _amount) // 未修改数量
+					return;
+
+				var $tr = $(this).parents("tr");
+				// 该行绑定数据在数组中索引
+				var index = exist($tr.children().eq(1).text(), products);
+				// 获取该行对应数组中的商品对象
+				var product = products[index];
+				// 设置商品数量为文本框中输入的数量值
+				product.amount = Number($(this).val());
+				// 保存回 cookie
+				$.cookie("products", products, {expires:7});
+				// 更新页面显示小计
+				$tr.find(".sub").text(product.price * product.amount);
+				calcTotal();
+			});
+			/* 全选效果 */
+			$(".ck_all").click(function(){
+				// 将所有商品行前的复选框选中状态设置为"全选"一致的状态
+				$(".ck_prod").prop("checked", $(this).prop("checked"));
+				$(".ck_all").prop("checked", $(this).prop("checked"));
+				// 刷新显示合计金额
+				calcTotal();
+			});
+			// 商品行前复选框点击效果
+			$(".ck_prod").click(function(){
+				// 已选中筛选框个数和所有复选框个数相同，则说明是全选
+				if($(".ck_prod:checked").length == $(".ck_prod").length)
+					$(".ck_all").prop("checked", true);
+				else
+					$(".ck_all").prop("checked", false);
+
+				// 刷新显示合计金额
+				calcTotal();
+		    });
+		    $("#clearcart").click(function(){
+		    	$("#cover").show();
+		    	$("#emptyshow").show();
+		    	$("#cancal,#cancal_clear").click(function(){
+		    		$("#cover").hide();
+		    	    $("#emptyshow").hide();
+		    	    return;
+		    	})
+		    	$("#confirm_clear").click(function(){
+		    		$("#cover").hide();
+		    	    $("#emptyshow").hide();
+		    	    $.cookie("pro",pro,{expires:-1});
+			    	$.cookie("products",products,{expires:-1});
+			    	
+			    	var $trs=$("tr").length;
+			    	$("tr:not(:first)").remove();
+			    	calcTotal();
+			    	if($trs===1){
+						alert("购物车为空");
+						location = "/飞牛网/html/index.html";
+						return;	
+						}
+		    	})		    	
+		    })
+		    $(".topay").click(function(){
+			var usename=$.cookie("usename");
+			if(usename)
+			location="/飞牛网/html/confirm.html";
+			else{
+				alert("还未登录，请先登录");
+				location="/飞牛网/html/login.html";
+			    }
+		    })
+		var pro=new Array();
+				$.cookie("pro",pro,{expires:-1})
+		function calcTotal() {
+				// 获取所有选中行，累加行中的小计金额
+				var sum = 0;
+				$(".ck_prod:checked").each(function(index, element){
+					sum += Number($(element).parents("tr").children(".sub").text());
+				});
+				// 显示合计金额
+				$(".total").text(sum==0?0:sum+15);
+				var $ck=$(".ck_prod:checked").parents("tr");
+				console.log($ck)
+				
+				for(var i=0;i<$ck.length;i++){
+					
+					pro[i]={
+					id:$ck.eq(i).find("td").eq(1).find("img").attr("src"),
+					name:$ck.eq(i).find("td").eq(1).find("span").text(),
+					price:$ck.eq(i).find("td").eq(2).text(),
+					amount:$ck.eq(i).find("td").eq(3).find("input").val(),
+					total:$ck.eq(i).find("td").eq(4).text()
+				  }
+				}
+				$.cookie("pro",pro,{expires:7})
+				if($(".ck_all").prop("checked"))
+				$.cookie("pro",products,{expires:7});	
+				allamount()
+			}
+		function allamount(){
+				var allamount=0,
+				    allproducts=$.cookie("products");
+				for(var i=0;i<allproducts.length;i++){
+					allamount+=parseInt(allproducts[i].amount)
+				}
+				$(".cart_amount").text(allamount)
+			}
+    });
+		// 判断在所有选购商品的数组中是否存在指定 id 所表示的商品对象
+		// 返回存在的商品对象在数组中的下标，不存在则返回 -1
+		function exist(name, products) {
+			for (var i = 0, len = products.length; i < len; i++) {
+				if (products[i].name == name)
+					return i;
+			}
+			return -1;
+		}			
+		</script>
+		
+	</body>
+</html>

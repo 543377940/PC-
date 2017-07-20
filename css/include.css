@@ -1,0 +1,136 @@
+
+	html,body,div,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,p,input{
+	padding: 0;
+	margin: 0 auto;
+	font-family: "微软雅黑";
+	/*box-sizing: border-box;*/
+}
+ul li{
+      list-style:none;   
+}
+html,body{
+	width: 100%;
+	height: 100%;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.head{
+	width: 100%;
+	height: 35px;
+	border-bottom: 1px solid gray;
+}
+.logo{
+	width: 1190px;
+	height: 35px;
+	line-height: 35px;
+}
+.logo .u1{
+	float: left;
+	height: 35px;
+	line-height: 35px;
+	margin-left: 30px;
+}
+.logo .u2{
+	float: right;
+	height: 35px;
+	line-height: 35px;
+	margin-right: 30px;
+}
+.logo ul li{
+	float: left;
+	font-size: 12px;
+	
+}
+.logo ul li a{
+	color: #666666;
+	padding:0 5px;	
+}
+.fei{
+	width: 100%;
+	height: 80px;
+	
+}
+.fei .niu{
+	width: 1190px;
+	height: 80px;
+	overflow: hidden;
+}
+.fei .niu a{
+	display: inline-block;
+	height: 60px;
+}
+.fei .niu .lo1{
+	width: 360px;
+	height: 60px;
+    margin-top:20px ;
+}
+.fei .niu div{
+	
+	float: left;
+}
+.fei .niu .lo2{
+	border: 2px solid saddlebrown;
+	margin-top:20px ;
+	position: relative;
+}
+.fei .niu .lo2 #wz{
+	position: absolute;
+	bottom: -15px;
+	height: 15px;
+}
+.fei .niu .lo2 #wz a{
+	font-size: 12px;
+	color: gray;
+}
+.fei .niu .lo2 .int{
+	width: 395px;
+	height: 28px;
+	padding: 5px;
+	margin: 0;
+	border:none;
+	outline: none;
+}
+.fei .niu .lo2 .bot{
+	width: 95px;
+	height: 38px;
+	padding: 5px;
+	margin: 0;
+	border: none;
+	outline: none;
+	color: white;
+	font-size: 20px;
+	background:brown;
+}
+.fei .niu .lo2 div:nth-child(1){
+	background: white;
+	line-height: 38px;
+	text-align: center;
+	width: 36px;
+	height: 38px;
+}
+#cart{
+	width: 160px;
+	height: 50px;
+	background: gray;
+	margin-top: 15px;
+	margin-left:103px ;
+}
+#cart a{
+	display: block;
+	
+}
+#cart div{
+	width: 80px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+#cart a div:nth-child(1){
+	background: gainsboro;
+}
+#cart a div:nth-child(2){
+	background: brown;
+	color: white
+}

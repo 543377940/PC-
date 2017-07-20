@@ -1,0 +1,397 @@
+html,body,div,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,p,input{
+	padding: 0;
+	margin: 0 auto;
+	font-family: "微软雅黑";
+	/*box-sizing: border-box;*/
+}
+#pronav{
+	width: 1190px;
+	height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+    clear: both;
+    font-family: sans-serif, 'Hiragino Sans GB';
+}
+#detail{
+	width: 1190px;
+	height: 558px;
+	border: 1px solid gainsboro;
+}
+#detail>div{
+	float: left;
+}
+#detail ul{
+	/*width: 400px;*/
+	height: 72px;
+	padding: 10px 35px;
+}
+#detail ul li{
+	width: 60px;
+	height: 60px;
+	border: 1px solid gainsboro;
+	float: left;
+	margin: 8px;
+}
+#dleft{
+	width: 400px;
+	height: 560px;	
+	border-right: 1px solid #f2f2f2;
+}
+#proshow{
+	width: 400px;
+	height: 400px;
+	position: relative;
+}
+#proshow img{
+	position: absolute;
+	float: left;
+
+}
+#img-big{
+    display:none;
+    width:400px;
+    height:400px;
+    position:absolute;
+    top:218px;
+    left:439px;
+    border:1px solid #abcdef;
+    overflow:hidden;
+    z-index: 888;
+}
+#mark{
+    width:200px;
+    height:200px;
+    opacity:0.5;
+    filter: alpha(opacity=50);
+    background:#abcdef;
+    cursor:move;
+    position:absolute;
+    display:none;
+}
+#img-big img{
+    
+    position:absolute;
+    top:0;
+    left:0;
+}
+.scang{
+	width: 400px;
+	height: 65px;
+	border-right: 1px solid #f2f2f2;
+    border-top: 1px solid #DEDEDE;
+}
+.scang a{
+	display: block;
+	font-size: 12px;
+	margin: 15px;
+}
+#detail ul li{
+	position: relative;
+}
+#detail ul li img:nth-child(2){
+	position: absolute;
+	top:-6px;
+	left: 23px;
+	display: none;
+}
+#detail ul .bered{
+	border-color: red;
+}
+#detail ul .bered img:nth-child(2){
+	display: block;
+}
+#dmid{
+	width: 590px;
+	height: 560px;
+}
+#dmidtop{
+	width: 590px;
+	height: 93px;
+	box-sizing: border-box;
+	padding: 20px;
+	border-right: 1px solid #f2f2f2;
+    border-bottom: 1px solid #DEDEDE;
+}
+#dmidtop h3{
+	font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+    padding-bottom: 4px;
+    font-family: sans-serif, 'Hiragino Sans GB';
+}
+#dmidtop p{
+	font-size: 12px;
+}
+#dmidmid{
+	width: 590px;
+	height: 462px;
+}
+#dmidmid_top{
+	width: 590px;
+	height: 67px;
+	box-sizing: border-box;
+	padding: 20px 15px;
+}
+#price div{
+	float: left;
+	margin-right: 5px;
+}
+#abc{
+	width: 590px;
+	height: 238px;
+}
+#abc dl{
+	width: 590px;
+	height: 50px;
+	float: left;
+}
+#abc dl dt{
+	float: left;
+	font-size: 12px;
+}
+#abc dl dd{
+	float: left;
+}
+#abc dl dd ul li{
+	font-size: 12px;
+	width: 75px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+#abc dl dd ul .borderchange{
+	border: 1px solid red;
+}
+#add_min a{
+	display: block;
+	float: left;
+	border: 1px solid gainsboro;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+}
+#add_min div{
+	width: 30px;
+	height: 30px;
+	float: left;
+	border-bottom:1px solid gainsboro ;
+	border-top: 1px solid gainsboro;
+}
+#add_min div input{
+	border: none;
+	outline: none;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background: none;
+}
+#getincart{
+	width: 100px;
+	height: 40px;
+	background: red;
+	color: white;
+	margin-top: 50px;
+	margin-left: 85px;
+	float: left;
+}
+#getincart a{
+	display: block;
+	width: 100px;
+	height: 40px;
+	background: red;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+}
+#address dl{
+	display: block;
+}
+#address dl dt,dd{
+	float: left;
+	font-size: 14px;
+	color: #999;;
+}
+#address dl dt{
+	width: 67px;
+	margin: 5px;
+}
+#address dl dd{
+	width: 475px;
+}
+#address p{
+	margin: 5px;
+}
+.pp span{
+	border: 1px solid gray;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 5px;
+	margin-right: 5px;
+	color: black;
+}
+#dright{
+	width: 199px;
+	height: 560px;
+}
+#drt{
+	width: 199px;
+	height: 35px;
+}
+#drt div:nth-child(1){
+	height: 35px;
+	float: left;
+	font-size: 12px;
+	line-height: 35px;
+	padding-left: 20px;
+}
+#drt div:nth-child(2){
+	height: 35px;
+	float: right;
+	font-size: 12px;
+	line-height: 35px;
+	padding-right: 20px;
+}
+#drb div{
+	margin-bottom: 13px;
+}
+#del_bottom{
+	width: 1190px;
+	margin-top: 30px;
+/*	height: 1000px;*/
+}
+#del_bot_left{
+	width: 210px;
+/*	background: green;*/
+	float: left;
+}
+#del_bot_right{
+	width: 950px;
+/*	height: 1000px;*/
+	float: left;
+	margin-left: 15px;
+}
+#shouhou{
+	width: 950px;
+	/*height: 43px;*/
+	border-bottom: 1px solid brown;
+}
+#shouhou ul li{
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	line-height: 40px;
+	padding: 0 30px;
+	font-size: 14px;
+	border-top: 1px solid gainsboro;
+	border-right: 1px solid gainsboro;
+	border-left: 1px solid gainsboro;
+	margin-top: 2px;
+}
+#shouhou ul{
+	height: 44px;
+	background: white;
+}
+#shouhou ul li a{
+	display: block;
+}
+#shouhou ul .dd{
+	height: 43px;
+	line-height: 42px;
+	padding: 0 32px;
+	background: brown;
+	font-weight: bold;
+	color: white;
+	margin-top: 0;
+	border-top: 1px solid brown;
+	border-right: 1px solid brown;
+	border-left: 1px solid brown;
+}
+.explain{
+/*	position: relative;*/
+}
+.explain>div{
+	display: none;
+/*	position: absolute;*/
+}
+.ccc{
+	position: fixed;
+	top: 0;
+	left: 262px;
+}
+#del_bot_left h3{
+	font-size: 13px;
+	background: gray;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 15px;
+}
+#del_bot_left>div:nth-child(1){
+	margin-top: 15px;
+}
+#del_bot_left>div:nth-child(2){
+	margin-top: 15px;
+}
+#hot {
+	border: 1px solid gainsboro;
+	border-bottom: none;
+}
+#hot ul{
+	height: 50px;
+	border-bottom: 1px solid gainsboro;
+}
+#hot ul li{
+	float: left;
+	height: 31px;
+	width: 50px;
+	border: 1px solid gainsboro;
+	border-bottom: none;
+	margin: 19px 8px;
+	background: gainsboro;
+}
+#hot ul li a{
+	display: block;
+	font-size: 12px;
+	line-height: 31px;
+	text-align: center;
+}
+#hot ul .bewhite{
+	background: white;
+}
+#hotpro{
+	width: 208px;
+	border: 1px solid gainsboro;
+	border-top: 0;	
+}
+#hotpro>div{
+	display: none;
+}
+#hotpro dl dd,dt{
+	float: left;
+}
+#hotpro dl{
+	width: 210px;
+	height: 90px;
+}
+#hotpro dl dd{
+	font-size: 12px;
+	width: 150px;
+}
+#hotpro dl dd a{
+	display: inline-block;
+}
+#lin{
+	border: 1px solid gainsboro;
+	box-sizing: border-box;
+	padding: 10px;
+}
+#lin a{
+	font-size: 12px;
+}
+#lin a:hover{
+	color: brown;
+}

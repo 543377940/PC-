@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>订单确认</title>
+		<link rel="stylesheet" type="text/css" href="../css/include.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/list.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/confirm.css"/>
+	</head>
+	
+	<body>
+		<div class="header"></div>
+		<div id="cart_nav">
+			<div id="logo">
+	        	<div>
+	        		<a href="index.html">
+	        			<img src="../img/s-logo.png"/>
+	        		</a>
+	        	</div>
+	        </div>
+	    </div>
+	    <div class="com_address">
+	    	<div><p>确认收货地址</p></div>
+	    	<div><p><a href="#">添加新地址</a></p></div>
+	    </div>
+	    <div class="address">
+	    	<div class="address_left cz">
+	    		<p><span>王鹏贺:    </span><span>15888888888</span><span style="background: gray;margin-left: 21px;display: inline-block;color: white;">默认地址</span></p>
+	    		<p><span>收货地址:   </span><span class="chose_address">成都市武侯区力宝大厦北楼</span></p>
+	    		<p class="botpp"><a href="javascript:void(0)">编辑|删除</a></p>
+	    	</div>
+	    	<div class="address_right ncz">
+	    		<p><span>王鹏贺:   </span><span>13777777777</span></p>
+	    		<p><span>收货地址:   </span><span class="chose_address">成都市武侯区啥子街213号院2楼13室</span></p>
+	    		<p class="botpp"><a href="javascript:void(0)">设为默认|编辑|删除</a></p>
+	    	</div>
+	    </div>
+	    <div class="com_address">
+	    	<div><p>确认商品信息</p></div>
+	    </div>
+	    <div id="checkpro">
+	    	<table>
+	    		<tr style="height: 50px;">
+	    			<td style="height: 50px;text-align: center;">商品信息</td>
+	    			<td style="height: 50px;">单价(元)</td>
+	    			<td style="height: 50px;">数量</td>
+	    			<td style="height: 50px;">小计(元)</td>
+	    		</tr>	    		
+	    	</table>
+	    </div>
+	    <div id="subtotal">
+	    	<div>
+	    		<span>合计（含运费）：￥</span>
+	    	    <span class="totalprice">0</span>
+	    	</div>	    	
+	    </div>
+	    <div id="subimagess">
+	    	<div>
+	    		<div>
+	    			<p id="ppp">
+		    			<span>实付款：￥</span>
+		    	        <span class="totalprice" style="color: orangered;">0</span>
+	    		    </p>	
+	    		</div>
+	    		<div>
+	    			<p><span style="font-weight: bold;">寄送至:  </span><span id="address_comt">成都市武侯区力宝大厦北楼</span></p>
+	    		</div>    		
+	    	    <div>
+	    	    	<p><span style="font-weight: bold;">收货人:  </span>王鹏贺</p>
+	    	    </div>	    	    
+	    	</div>
+	    </div>
+	    <div class="suborder">	    	
+	    	<div id="suborder">
+	    		<a href="javascript:void(0)" class="post">提交订单</a>
+	    	</div>
+	    	<div id="returncart">
+	    		<a href="javascript:void(0)" class="returntocart">返回修改</a>
+	    	</div>
+	    </div>
+	    <div class="footer"></div>
+	    <script type="text/html" id="ckpro_template">
+			<% for (var i = 0, len = list.length; i < len; i++) {
+				var pro = list[i];
+			%>
+	            <tr>
+					<td>
+						<div id="">
+						    <a href=""><img src="<%= pro.id %>"/></a>
+					    </div>
+					    <span><%= pro.name %></span>
+					</td>
+					<td><%= pro.price %></td>
+					<td><%= pro.amount %></td>
+					<td><%= pro.price* pro.amount%></td>
+				</tr>
+			<% } %>
+		</script>
+		<script type="text/javascript" src="../lib/jquery/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../lib/plugins/jquery.cookie.js"></script>
+		<script src="../lib/artTemplate/template-native.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/include.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.cookie.json = true;
+			// 读取所有购物车选购商品的数组
+			    var pro = $.cookie("pro") || [];
+			    var data = {
+				list : pro
+			    };
+			// 使用模板引擎渲染所有选购商品的数据
+			    var html = template("ckpro_template", data);
+			    $("table").append(html);
+			    var sum=0;
+			    for(var i=0;i<pro.length;i++){
+			    	sum+=parseInt(pro[i].price*pro[i].amount)
+			    }
+			    $(".totalprice").text(sum+15)
+			    $("#suborder .post").click(function(){
+			    	alert("订单提交成功")
+			    })
+			    $("#returncart .returntocart").click(function(){
+			    	location="cart.html"
+			    })
+			    $(".address div").click(function(){
+			    	$(this).addClass("cz").removeClass("ncz")
+			    	       .siblings().addClass("ncz").removeClass("cz");
+			    	var $span=$(this).find(".chose_address").text();
+			    	$("#address_comt").text($span);
+			    })
+			})
+		</script>
+	</body>
+</html>	
