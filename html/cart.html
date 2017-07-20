@@ -8,9 +8,12 @@
 		<link rel="stylesheet" type="text/css" href="../css/cart.css"/>
 	</head>
 	<body>
+		
 		<div id="cover"></div>
 		<div class="header"></div>
-		
+		<div id="fuck">
+			<p>购物车没有任何商品，即将跳转至主页...</p>
+		</div>
 		<div id="emptyshow">
 			<div class="empty">
 				<div id="cancal"><img src="../img/bad3771e7d516edd7e14e0fc9020cc76.jpg"/></div>
@@ -75,7 +78,7 @@
 					<td><%= product.price %></td>
 					<td><span class="minus"> - </span> <input type="text" id="cartam" value="<%= product.amount %>" class="amount"> <span class="add"> + </span></td>
 					<td class="sub"><%= product.amount * product.price %></td>
-					<td><a href="javascript:void(0);">删除</a></td>
+					<td><a href="javascript:void(0);" id="shanchu">删除</a></td>
 				</tr>
 			<% } %>
 		</script>
@@ -92,7 +95,7 @@
 			// 如果数组长度为0，表示购物车为空
 			if (products.length === 0) {
 				alert("购物车为空");
-				location = "/飞牛网/html/index.html";
+				location = "/FN/html/index.html";
 				return;
 			}
 			
@@ -106,7 +109,7 @@
 			$("table").append(html);
 
 			/* 点击"删除"链接，删除单行商品 */
-			$("table a:not(:first)").click(function(){
+			$("table #shanchu").click(function(){
 				// 获取当前点击的 "删除" 链接所在行
 				var $tr = $(this).parents("tr");
 				/* 在 cookie 中删除该行商品 */
@@ -119,7 +122,7 @@
 				$tr.remove();
 				if (products.length === 0) {
 				alert("购物车为空");
-				location = "/飞牛网/html/index.html";
+				location = "/FN/html/index.html";
 				return;
 			    }  
 			});
@@ -211,26 +214,44 @@
 		    	$("#confirm_clear").click(function(){
 		    		$("#cover").hide();
 		    	    $("#emptyshow").hide();
+		    	    $("#fuck").show("fast",function(){
+		    	    	$("#fuck").hide(3000,function(){
+		    	    		location = "/FN/html/index.html";
+		    	    	});
+		    	    	
+		    	    });
 		    	    $.cookie("pro",pro,{expires:-1});
 			    	$.cookie("products",products,{expires:-1});
 			    	
-			    	var $trs=$("tr").length;
+//			    	var $trs=$("tr");
 			    	$("tr:not(:first)").remove();
-			    	calcTotal();
-			    	if($trs===1){
-						alert("购物车为空");
-						location = "/飞牛网/html/index.html";
-						return;	
-						}
+			    	$(".cart_amount").text(0)
+//			    	console.log($trs)
+//			    	calcTotal();
+			    	
+//			    	if($trs.length===1){
+//						alert("购物车为空");
+//						location = "/FN/html/index.html";
+//						return;	
+//						}
 		    	})		    	
 		    })
 		    $(".topay").click(function(){
 			var usename=$.cookie("usename");
-			if(usename)
-			location="/飞牛网/html/confirm.html";
+			if(usename){
+				var $ckpro=$(".ck_prod:checked").length;
+				console.log($ckpro)
+				if($ckpro===0){
+					alert("还未选中任何商品")
+					return;
+				}else{
+					location="/FN/html/confirm.html";
+				}				
+			}
+			
 			else{
 				alert("还未登录，请先登录");
-				location="/飞牛网/html/login.html";
+				location="/FN/html/login.html";
 			    }
 		    })
 		var pro=new Array();

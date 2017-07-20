@@ -1,6 +1,6 @@
 $(function(){
 	$.cookie.json = true;
-	$.get("/飞牛网/html/include/header.html", function(data){
+	$.get("/FN/html/include/header.html", function(data){
 		var _user = $.cookie("usename");
 		if (_user){
 			console.log(111)
@@ -25,7 +25,7 @@ $(function(){
 		$(".cart_amount").text(_amount)
 	});
 
-	$.get("/飞牛网/html/include/footer.html", function(data){
+	$.get("/FN/html/include/footer.html", function(data){
 		$(data).appendTo(".footer");
 	})
 });

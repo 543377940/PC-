@@ -171,3 +171,19 @@ table div{
 	position: fixed;
 	display: none;
 }
+#fuck{
+	display: none;
+	position: absolute;
+	top:200px;
+	left: 455px;
+	width: 400px;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	border: 2px solid orangered;
+	background: white;
+}
+#fuck p{
+	font-size: 18px;
+	color:orangered;
+}
